@@ -1,37 +1,51 @@
 #
-# Be sure to run `pod spec lint NAME.podspec' to ensure this is a
+# Be sure to run `pod spec lint NSError+Exception.podspec' to ensure this is a
 # valid spec and remove all comments before submitting the spec.
 #
 # To learn more about the attributes see http://guides.cocoapods.org/syntax/podspec.html
 #
 Pod::Spec.new do |s|
   s.name             = "NSError+Exception"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of NSError+Exception."
+  s.version          = "1.0"
+  s.summary          = "A handy wrapper for throwing NSErrors as NSExceptions"
   s.description      = <<-DESC
-                       An optional longer description of NSError+Exception
+                       A handy wrapper for throwing NSErrors as NSExceptions (if you're into that kind of thing)
 
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       Suppose you have the following code:
+
+                       NSError *error;
+                       BOOL success = [[NSFileManager defaultManager] moveItemAtPath:@"/start"
+                                                                              toPath:@"/end"
+                                                                               error:&error];
+
+                       And error is non-nil but most of your logic deals with NSExceptions rather than NSErrors.
+                       Rather than having a corner case where you need to pass in NSErrors, you can simply throw the NSError
+
+                       if (!success) {
+                           [error throw];
+                       }
+
+                       Your code will either crash or be handled by your @try/@catch/@finally block.
+
+                       The logic used is along the lines of:
+
+                       @throw [NSException exceptionWithName:@"NSError" reason:self.debugDescription userInfo:@{ @"NSError" : self }];
+
+                       You can provide a more informative exception name by sending the - (void)throwWithName:(NSString*)name message instead.
+
+                       NSException/NSError information:
+                       http://nshipster.com/nserror/
+                       http://club15cc.com/code/objective-c/dispelling-nsexception-myths-in-ios-can-we-use-try-catch-finally
+                       https://developer.apple.com/library/mac/documentation/cocoa/reference/foundation/Classes/NSException_Class/Reference/Reference.html
+                       https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSError_Class/Reference/Reference.html
+
                        DESC
-  s.homepage         = "http://EXAMPLE/NAME"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/maxcabral/NSError-Exception"
   s.license          = 'MIT'
   s.author           = { "Maxwell Cabral" => "max@maxcabral.com" }
-  s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/NAME'
-
-  # s.platform     = :ios, '5.0'
-  # s.ios.deployment_target = '5.0'
-  # s.osx.deployment_target = '10.7'
+  s.source           = { :git => "https://github.com/maxcabral/NSError-Exception.git", :tag => s.version.to_s }
   s.requires_arc = true
 
-  s.source_files = 'Classes'
-  s.resources = 'Resources'
-
-  s.ios.exclude_files = 'Classes/osx'
-  s.osx.exclude_files = 'Classes/ios'
-  # s.public_header_files = 'Classes/**/*.h'
-  # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  # s.dependency 'JSONKit', '~> 1.4'
+  s.source_files = 'NSError+Exception.{h,m}'
+  s.frameworks   = 'Foundation'
 end
