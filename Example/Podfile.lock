@@ -1,0 +1,14 @@
+PODS:
+  - NSError+Exception (1.0)
+
+DEPENDENCIES:
+  - NSError+Exception (from `../`)
+
+EXTERNAL SOURCES:
+  NSError+Exception:
+    :path: ../
+
+SPEC CHECKSUMS:
+  NSError+Exception: 076206610046e0a67e5f2391e28799d4f9f92d0c
+
+COCOAPODS: 0.29.0

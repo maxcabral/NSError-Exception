@@ -1,7 +1,6 @@
-pod "NSError+Exception", :path => "../NSError+Exception.podspec"
+# Uncomment this line to define a global platform for your project
+# platform :ios, "6.0"
 
-target "Demo" do
-end
-
-target "DemoTests" do
+target "NSErrorExceptionDemo" do
+pod 'NSError+Exception', :path => "../"
 end
