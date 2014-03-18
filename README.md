@@ -9,6 +9,8 @@ To run the example project; clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+None! Happy day! Well... NSError, but if you don't have that you're in bad shape.
+
 ## Installation
 
 NSError+Exception is available through [CocoaPods](http://cocoapods.org), to install
