@@ -1,0 +1,7 @@
+pod "NSError+Exception", :path => "../NSError+Exception.podspec"
+
+target "Demo" do
+end
+
+target "DemoTests" do
+end
