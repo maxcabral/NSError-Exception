@@ -16,7 +16,6 @@
 
 - (void)throwWithName:(NSString*)name
 {
-    NSLog(@"NSError being thrown: %@",self.debugDescription);
     @throw [NSException exceptionWithName:name
                                    reason:self.debugDescription
                                  userInfo:@{ @"NSError" : self }];
