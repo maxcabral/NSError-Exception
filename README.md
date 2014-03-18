@@ -28,9 +28,13 @@ The logic used is along the lines of:
 You can provide a more informative exception name by sending the - (void)throwWithName:(NSString*)name message instead.
 
 NSException/NSError information:
+
 http://nshipster.com/nserror/
+
 http://club15cc.com/code/objective-c/dispelling-nsexception-myths-in-ios-can-we-use-try-catch-finally
+
 https://developer.apple.com/library/mac/documentation/cocoa/reference/foundation/Classes/NSException_Class/Reference/Reference.html
+
 https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSError_Class/Reference/Reference.html
 
 ## Usage
