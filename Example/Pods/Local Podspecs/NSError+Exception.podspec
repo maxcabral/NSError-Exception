@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint NSError+Exception.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://guides.cocoapods.org/syntax/podspec.html
-#
 Pod::Spec.new do |s|
   s.name             = "NSError+Exception"
   s.version          = "1.0"
