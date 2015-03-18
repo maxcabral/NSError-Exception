@@ -54,7 +54,7 @@ it simply add the following line to your Podfile:
 
 ## Author
 
-Maxwell Cabral, max@maxcabral.com
+Maxwell Cabral
 
 ## License
 
